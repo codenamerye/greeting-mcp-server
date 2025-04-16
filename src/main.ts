@@ -2,8 +2,14 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('/api', { exclude: ['sse', 'messages'] });
-  await app.listen(process.env.PORT ?? 3000);
+  // disable color output at process level
+  process.env.NO_COLOR = 'true';
+
+  // disable NestJS logger entirely
+  await NestFactory.createApplicationContext(AppModule, {
+    logger: false,
+  });
+
+  // DO NOT use app.listen — MCP uses stdin/stdout
 }
 bootstrap();
