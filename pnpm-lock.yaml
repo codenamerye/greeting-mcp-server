@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.9.0
-        version: 1.9.0
+        specifier: npm:mcp-test-sdk@^1.10.0
+        version: mcp-test-sdk@1.10.0
       '@nestjs/common':
         specifier: ^11.0.1
         version: 11.0.19(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -22,7 +22,7 @@ importers:
         version: 11.0.19(@nestjs/common@11.0.19(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.19)
       '@rekog/mcp-nest':
         specifier: 1.4.0-beta.2
-        version: 1.4.0-beta.2(@modelcontextprotocol/sdk@1.9.0)(@nestjs/common@11.0.19(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.19)(express@5.1.0)(reflect-metadata@0.2.2)
+        version: 1.4.0-beta.2(@nestjs/common@11.0.19(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.19)(express@5.1.0)(mcp-test-sdk@1.10.0)(reflect-metadata@0.2.2)
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
@@ -599,10 +599,6 @@ packages:
   '@lukeed/csprng@1.1.0':
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
     engines: {node: '>=8'}
-
-  '@modelcontextprotocol/sdk@1.9.0':
-    resolution: {integrity: sha512-Jq2EUCQpe0iyO5FGpzVYDNFR6oR53AIrwph9yWl7uSc7IWUMsrmpmSaTGra5hQNunXpM+9oit85p924jWuHzUA==}
-    engines: {node: '>=18'}
 
   '@napi-rs/nice-android-arm-eabi@1.0.1':
     resolution: {integrity: sha512-5qpvOu5IGwDo7MEKVqqyAxF90I6aLj4n07OzpARdgDRfz8UbBztTByBp0RC59r3J1Ij8uzYi6jI7r5Lws7nn6w==}
@@ -2444,6 +2440,10 @@ packages:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
 
+  mcp-test-sdk@1.10.0:
+    resolution: {integrity: sha512-Prf9kU1WHLVu2Kfm1hHXy0YJcQngAvG34ZtADhSvt9VHnT4P91U0nZbb5RRaybqPszfnW1BKktUm+hxnz+Kt3w==}
+    engines: {node: '>=18'}
+
   media-typer@0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
     engines: {node: '>= 0.6'}
@@ -4010,21 +4010,6 @@ snapshots:
 
   '@lukeed/csprng@1.1.0': {}
 
-  '@modelcontextprotocol/sdk@1.9.0':
-    dependencies:
-      content-type: 1.0.5
-      cors: 2.8.5
-      cross-spawn: 7.0.6
-      eventsource: 3.0.6
-      express: 5.1.0
-      express-rate-limit: 7.5.0(express@5.1.0)
-      pkce-challenge: 5.0.0
-      raw-body: 3.0.0
-      zod: 3.24.2
-      zod-to-json-schema: 3.24.5(zod@3.24.2)
-    transitivePeerDependencies:
-      - supports-color
-
   '@napi-rs/nice-android-arm-eabi@1.0.1':
     optional: true
 
@@ -4208,9 +4193,9 @@ snapshots:
 
   '@pkgr/core@0.2.4': {}
 
-  '@rekog/mcp-nest@1.4.0-beta.2(@modelcontextprotocol/sdk@1.9.0)(@nestjs/common@11.0.19(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.19)(express@5.1.0)(reflect-metadata@0.2.2)':
+  '@rekog/mcp-nest@1.4.0-beta.2(@nestjs/common@11.0.19(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.19)(express@5.1.0)(mcp-test-sdk@1.10.0)(reflect-metadata@0.2.2)':
     dependencies:
-      '@modelcontextprotocol/sdk': 1.9.0
+      '@modelcontextprotocol/sdk': mcp-test-sdk@1.10.0
       '@nestjs/common': 11.0.19(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.0.19(@nestjs/common@11.0.19(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@11.0.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       express: 5.1.0
@@ -6146,6 +6131,21 @@ snapshots:
       tmpl: 1.0.5
 
   math-intrinsics@1.1.0: {}
+
+  mcp-test-sdk@1.10.0:
+    dependencies:
+      content-type: 1.0.5
+      cors: 2.8.5
+      cross-spawn: 7.0.6
+      eventsource: 3.0.6
+      express: 5.1.0
+      express-rate-limit: 7.5.0(express@5.1.0)
+      pkce-challenge: 5.0.0
+      raw-body: 3.0.0
+      zod: 3.24.2
+      zod-to-json-schema: 3.24.5(zod@3.24.2)
+    transitivePeerDependencies:
+      - supports-color
 
   media-typer@0.3.0: {}
 
