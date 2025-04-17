@@ -6,10 +6,10 @@ async function bootstrap() {
   process.env.NO_COLOR = 'true';
 
   // disable NestJS logger entirely
-  await NestFactory.createApplicationContext(AppModule, {
+  const app = await NestFactory.create(AppModule, {
     logger: false,
   });
 
-  // DO NOT use app.listen — MCP uses stdin/stdout
+  await app.listen(process.env.port || 3000);
 }
 bootstrap();
